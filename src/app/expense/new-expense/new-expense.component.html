@@ -1,0 +1,55 @@
+<form
+  class="example-form"
+  [formGroup]="newExpenseForm"
+  (ngSubmit)="onSubmit(formDirective)"
+  #formDirective="ngForm"
+>
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Full name</mat-label>
+      <mat-select formControlName="fullNameDetails">
+        <mat-option *ngFor="let detail of fullNameDetails" [value]="detail">{{
+          detail.fullName
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option
+              *ngFor="let category of categories"
+              [value]="category"
+              >{{ category }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Cost</mat-label>
+          <input matInput type="number" min="1" formControlName="cost" />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+  </p>
+  <div class="demo-button-container">
+    <button
+      mat-raised-button
+      class="demo-button"
+      type="submit"
+      [disabled]="newExpenseForm.invalid"
+    >
+      Add Expense
+    </button>
+  </div>
+</form>

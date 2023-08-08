@@ -1,0 +1,48 @@
+<h3 mat-dialog-title>Edit Expense</h3>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="expenseForm">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <mat-select formControlName="fullName">
+          <mat-option *ngFor="let detail of fullNamesDetails" [value]="detail.fullName">{{
+            detail.fullName
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category">{{
+            category
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Cost</mat-label>
+        <input matInput type="number" formControlName="cost" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" />
+      </mat-form-field>
+    </p>
+  </form>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-button
+      cdkFocusInitial
+      (click)="updateExpenseById(decentExpense.id)"
+      [disabled]="expenseForm.invalid"
+    >
+      Update
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>

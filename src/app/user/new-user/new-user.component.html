@@ -1,0 +1,59 @@
+<form
+  class="example-form"
+  [formGroup]="newUserForm"
+  (ngSubmit)="onSubmit(formDirective)"
+  #formDirective="ngForm"
+>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="firstName" />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" />
+        </mat-form-field>
+      </td>
+    </tr>
+    <!-- <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option
+              *ngFor="let category of categories"
+              [value]="category"
+              >{{ category }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Cost</mat-label>
+          <input matInput type="number" min="0" formControlName="cost" />
+        </mat-form-field>
+      </td>
+    </tr> -->
+  </table>
+  <!-- <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+  </p> -->
+  <div class="demo-button-container">
+    <button
+      mat-raised-button
+      class="demo-button"
+      type="submit"
+      [disabled]="newUserForm.invalid"
+    >
+      Add User
+    </button>
+  </div>
+</form>
